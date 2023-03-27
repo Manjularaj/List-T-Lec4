@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="1000">
     <Grid>
-        <Canvas Margin="366,24,53,155" Background="#FF367B0D"/>
+        <Canvas Margin="366,76,0,155" Background="#FF367B0D"/>
         <RichTextBox Margin="482,81,115,196">
             <FlowDocument>
                 <Paragraph>
@@ -29,7 +29,21 @@
             <Label Content="Remove Student"/>
             <TextBox x:Name="txtRemoveStudent" TextWrapping="Wrap" Width="120"/>
             <Button x:Name="btnRemoveStudent" Content="Remove Student" Click="Button_Click"/>
+            <Label Content="Remove At"/>
+            <TextBox x:Name="txtRemoveAt" TextWrapping="Wrap" Width="120"/>
+            <Button x:Name="btnRemoveAt" Content="Remove At" Click="btnRemoveAt_Click" />
         </StackPanel>
+        <Grid Margin="371,11,18,558">
+            <Canvas Background="#FF1C7AAF">
+                <Button Content="Button" Canvas.Left="39" Canvas.Top="33"/>
+                <Button Content="Button" Canvas.Left="39" Canvas.Top="33" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Content="Button" Canvas.Left="39" Canvas.Top="32" HorizontalAlignment="Center" VerticalAlignment="Center" Height="21"/>
+                <Button Content="Add Student" Canvas.Left="39" Canvas.Top="32" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="2.469,0.89" />
+                <Button Content="Insert" Canvas.Left="112" Canvas.Top="28" Height="21" RenderTransformOrigin="2.469,0.89" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Content="Remove" Canvas.Left="184" Canvas.Top="28" Height="21" RenderTransformOrigin="2.469,0.89" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button Content="Remove At" Canvas.Left="247" Canvas.Top="28" Height="21" RenderTransformOrigin="2.469,0.89" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Canvas>
+        </Grid>
 
     </Grid>
 </Window>

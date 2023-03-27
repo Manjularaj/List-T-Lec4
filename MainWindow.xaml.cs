@@ -64,6 +64,10 @@ namespace List_T_Lec4
         public void FormatString(int i)
         {
 
+            //string fName = firstNamesList[i];
+            //string lName = lastNamesList[i];
+            //string grade = gradesList[i];
+
             runDisplay.Text += $"{i} - {firstNamesList[i]} {lastNamesList[i]} - {gradesList[i]} \n";
         }
 
@@ -100,7 +104,7 @@ namespace List_T_Lec4
             runDisplay.Text = "";
             for (int i = 0; i < firstnames.Length; i++)
             {
-
+                
                 //First Name last Name - Grade
                 runDisplay.Text += $"{firstnames[i]} {lastnames[i]} - {grades[i]}\n";
             }
@@ -129,20 +133,25 @@ namespace List_T_Lec4
 
             string fName = txtRemoveStudent.Text;
 
-            bool wasRemoved = firstNamesList.Remove(fName);
+            //bool wasRemoved = firstNamesList.Remove(fName);
             
+            while(firstNamesList.Contains(fName))
+            {
+
+                firstNamesList.Remove(fName);
+            }
            
 
-            if (wasRemoved)
-            {
-                MessageBox.Show(fName + "was removed from the list");
+            //if (wasRemoved)
+            //{
+            //    MessageBox.Show(fName + "was removed from the list");
 
-            }
-            else
-            {
-                MessageBox.Show("that name waa not on list");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("that name waa not on list");
 
-            }
+            //}
 
             runDisplay.Text = "";
             foreach(string name in firstNamesList)
@@ -152,6 +161,25 @@ namespace List_T_Lec4
 
             }
         }
+
+        private void btnRemoveAt_Click(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(txtRemoveAt.Text);
+
+
+            if(index < firstNamesList.Count)
+            {
+                firstNamesList.RemoveAt(index);
+                lastNamesList.RemoveAt(index);
+                gradesList.RemoveAt(index);
+
+            }
+
+
+            DisplayFromList();
+        }
+
+        
     }//Class
 
 
