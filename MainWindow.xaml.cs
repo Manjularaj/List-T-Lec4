@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
@@ -22,11 +23,11 @@ namespace List_T_Lec4
     /// </summary>
     public partial class MainWindow : Window
     {
-        string[] firstnames = { "Will", "Hannah", "Anne" };
-        string[] lastnames = { "Cram", "Angel", "Nguyen" };
-        int[] grades = { 57, 101, 110 };
+        string[] firstnames = { "Will", "Hannah", "Anne", "Will" };
+        string[] lastnames = { "Cram", "Angel", "Nguyen", "Cram" };
+        int[] grades = { 57, 101, 110, 57 };
 
-        List<string> firstNamesList = new List<string> { "Will", "Hannah", "Anne" };
+        List<string> firstNamesList = new List<string> { "Will", "Hannah", "Anne", "will" };
         List<string> lastNamesList;
         List<int> gradesList;
 
@@ -40,6 +41,8 @@ namespace List_T_Lec4
             lastNamesList = lastnames.ToList();
             gradesList = grades.ToList();
 
+            DisplayFromList();
+
         }// Main.ToLoWindow
 
         public void DisplayFromList()
@@ -50,7 +53,10 @@ namespace List_T_Lec4
             for (int i = 0; i < firstNamesList.Count; i++)
             {
 
+                
                 FormatString(i);
+
+
             }
 
         }
@@ -58,23 +64,14 @@ namespace List_T_Lec4
         public void FormatString(int i)
         {
 
-            runDisplay.Text += $"{firstNamesList[i]} {lastNamesList[i]} - {gradesList[i]}";
+            runDisplay.Text += $"{i} - {firstNamesList[i]} {lastNamesList[i]} - {gradesList[i]} \n";
         }
 
 
 
         private void btnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            string fName = txtFirstName.Text;
-            string lName = txtLastName.Text;
-            int grade = int.Parse(TxtGrade.Text);
-
-            //to add list
-
-            firstNamesList.Add(fName);
-            lastNamesList.Add(lName);
-            gradesList.Add(grade);
-
+           
             DisplayFromList();
 
 
@@ -110,7 +107,51 @@ namespace List_T_Lec4
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string fName = txtFirstName.Text;
+            string lName = txtLastName.Text;
+            int grade = int.Parse(txtGrade.Text);
+            int index = int.Parse(txtInsertAt.Text);
 
+            //to add list
+
+            firstNamesList.Insert(index, fName);
+            lastNamesList.Insert(index,lName);
+            gradesList.Insert(index,grade);
+
+            DisplayFromList();
+
+        }
+
+        private void btnRemoveStudent_Click(object sender, RoutedEventArgs e)
+        {
+
+            string fName = txtRemoveStudent.Text;
+
+            bool wasRemoved = firstNamesList.Remove(fName);
+            
+           
+
+            if (wasRemoved)
+            {
+                MessageBox.Show(fName + "was removed from the list");
+
+            }
+            else
+            {
+                MessageBox.Show("that name waa not on list");
+
+            }
+
+            runDisplay.Text = "";
+            foreach(string name in firstNamesList)
+            {
+                runDisplay.Text += name + "\n";
+
+
+            }
+        }
     }//Class
 
 

@@ -21,8 +21,14 @@
             <Label Content="Last Name" Width="221" Height="40"/>
             <TextBox x:Name="txtLastName" TextWrapping="Wrap" Width="120"/>
             <Label Content="Grade" Width="220" Height="35"/>
-            <TextBox x:Name="TxtGrade" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="txtGrade" TextWrapping="Wrap" Width="120"/>
             <Button x:Name="btnAddStudent" Content="Add New Students" Height="45" Click="btnAddStudent_Click"/>
+            <Label Content="Insert At"/>
+            <TextBox x:Name="txtInsertAt" TextWrapping="Wrap" Width="120"/>
+            <Button Content="Insert At" Click="Button_Click"/>
+            <Label Content="Remove Student"/>
+            <TextBox x:Name="txtRemoveStudent" TextWrapping="Wrap" Width="120"/>
+            <Button x:Name="btnRemoveStudent" Content="Remove Student" Click="Button_Click"/>
         </StackPanel>
 
     </Grid>
